@@ -1,57 +1,55 @@
-var _0x29a9 = [
+var _0x4899 = [
+  'BrowserWindow',
+  'screen',
+  'getPrimaryDisplay',
+  '#00BCD4',
+  'loadURL',
+  'format',
+  'join',
+  'file:',
+  'once',
+  'ready-to-show',
+  'ceil',
   'highlights.html',
   'setIgnoreMouseEvents',
   'closed',
   'ready',
   'checkForUpdatesAndNotify',
   'window-all-closed',
-  'platform',
   'darwin',
   'quit',
   'activate',
   'quit-application',
+  'uncaughtException',
+  'log',
   'electron',
-  'path',
   'electron-updater',
-  'app',
-  'BrowserWindow',
-  'getPrimaryDisplay',
-  'workAreaSize',
-  '#0000ff',
-  'loadURL',
-  'index.html',
-  'file:',
-  'once',
-  'ready-to-show',
-  'show',
-  'ceil',
-  'format',
-  'join'
+  'ipcMain'
 ];
-(function (_0x157e3f, _0x2407fa) {
-  var _0x827290 = function (_0x599c5f) {
-    while (--_0x599c5f) {
-      _0x157e3f['push'](_0x157e3f['shift']());
+(function (_0x355457, _0x10a0b4) {
+  var _0x5f1ee2 = function (_0x4d7e5c) {
+    while (--_0x4d7e5c) {
+      _0x355457['push'](_0x355457['shift']());
     }
   };
-  _0x827290(++_0x2407fa);
-}(_0x29a9, 0x1cb));
-var _0x49ca = function (_0x34526d, _0x20e442) {
-  _0x34526d = _0x34526d - 0x0;
-  var _0x384aad = _0x29a9[_0x34526d];
-  return _0x384aad;
+  _0x5f1ee2(++_0x10a0b4);
+}(_0x4899, 0xe7));
+var _0x2bf3 = function (_0xf6cbc1, _0x18f65b) {
+  _0xf6cbc1 = _0xf6cbc1 - 0x0;
+  var _0x1f0602 = _0x4899[_0xf6cbc1];
+  return _0x1f0602;
 };
-const electron = require(_0x49ca('0x0'));
-const path = require(_0x49ca('0x1'));
+const electron = require(_0x2bf3('0x0'));
+const path = require('path');
 const url = require('url');
-const { autoUpdater } = require(_0x49ca('0x2'));
-const ipc = electron['ipcMain'];
-const app = electron[_0x49ca('0x3')];
-const BrowserWindow = electron[_0x49ca('0x4')];
+const { autoUpdater } = require(_0x2bf3('0x1'));
+const ipc = electron[_0x2bf3('0x2')];
+const app = electron['app'];
+const BrowserWindow = electron[_0x2bf3('0x3')];
 let mainWindow;
 let highlightWindow;
 function createWindow() {
-  const { width, height } = electron['screen'][_0x49ca('0x5')]()[_0x49ca('0x6')];
+  const { width, height } = electron[_0x2bf3('0x4')][_0x2bf3('0x5')]()['workAreaSize'];
   mainWindow = new BrowserWindow({
     'width': 0x0,
     'height': 0x0,
@@ -62,22 +60,22 @@ function createWindow() {
     'frame': ![],
     'movable': ![],
     'skipTaskbar': !![],
-    'backgroundColor': _0x49ca('0x7'),
+    'backgroundColor': _0x2bf3('0x6'),
     'show': ![]
   });
-  mainWindow[_0x49ca('0x8')](url['format']({
-    'pathname': path['join'](__dirname, _0x49ca('0x9')),
-    'protocol': _0x49ca('0xa'),
+  mainWindow[_0x2bf3('0x7')](url[_0x2bf3('0x8')]({
+    'pathname': path[_0x2bf3('0x9')](__dirname, 'index.html'),
+    'protocol': _0x2bf3('0xa'),
     'slashes': !![]
   }));
-  mainWindow[_0x49ca('0xb')](_0x49ca('0xc'), () => {
-    mainWindow[_0x49ca('0xd')]();
+  mainWindow[_0x2bf3('0xb')](_0x2bf3('0xc'), () => {
+    mainWindow['show']();
   });
   highlightWindow = new BrowserWindow({
     'width': 0x12c,
     'height': 0x12c,
-    'x': Math[_0x49ca('0xe')](width * 0.74),
-    'y': Math[_0x49ca('0xe')](height * 0.65),
+    'x': Math[_0x2bf3('0xd')](width * 0.74),
+    'y': Math[_0x2bf3('0xd')](height * 0.65),
     'alwaysOnTop': !![],
     'transparent': !![],
     'frame': ![],
@@ -85,39 +83,39 @@ function createWindow() {
     'skipTaskbar': !![],
     'show': ![]
   });
-  highlightWindow['loadURL'](url[_0x49ca('0xf')]({
-    'pathname': path[_0x49ca('0x10')](__dirname, _0x49ca('0x11')),
-    'protocol': _0x49ca('0xa'),
+  highlightWindow['loadURL'](url[_0x2bf3('0x8')]({
+    'pathname': path[_0x2bf3('0x9')](__dirname, _0x2bf3('0xe')),
+    'protocol': _0x2bf3('0xa'),
     'slashes': !![]
   }));
-  highlightWindow['once'](_0x49ca('0xc'), () => {
-    highlightWindow[_0x49ca('0xd')]();
+  highlightWindow[_0x2bf3('0xb')](_0x2bf3('0xc'), () => {
+    highlightWindow['show']();
   });
-  highlightWindow[_0x49ca('0x12')](!![]);
-  mainWindow['on'](_0x49ca('0x13'), () => {
+  highlightWindow[_0x2bf3('0xf')](!![]);
+  mainWindow['on'](_0x2bf3('0x10'), () => {
     mainWindow = null;
   });
-  highlightWindow['on'](_0x49ca('0x13'), () => {
+  highlightWindow['on'](_0x2bf3('0x10'), () => {
     highlightWindow = null;
   });
 }
-app['on'](_0x49ca('0x14'), function () {
+app['on'](_0x2bf3('0x11'), function () {
   createWindow();
-  autoUpdater[_0x49ca('0x15')]();
+  autoUpdater[_0x2bf3('0x12')]();
 });
-app['on'](_0x49ca('0x16'), () => {
-  if (process[_0x49ca('0x17')] !== _0x49ca('0x18')) {
-    app[_0x49ca('0x19')]();
+app['on'](_0x2bf3('0x13'), () => {
+  if (process['platform'] !== _0x2bf3('0x14')) {
+    app[_0x2bf3('0x15')]();
   }
 });
-app['on'](_0x49ca('0x1a'), () => {
+app['on'](_0x2bf3('0x16'), () => {
   if (mainWindow === null) {
     createWindow();
   }
 });
-ipc['on'](_0x49ca('0x1b'), function (_0x325097) {
-  app[_0x49ca('0x19')]();
+ipc['on'](_0x2bf3('0x17'), function (_0x3c264f) {
+  app[_0x2bf3('0x15')]();
 });
-process['on']('uncaughtException', function () {
-  console['log']('');
+process['on'](_0x2bf3('0x18'), function () {
+  console[_0x2bf3('0x19')]('');
 });
